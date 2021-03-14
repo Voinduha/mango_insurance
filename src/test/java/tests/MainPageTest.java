@@ -25,6 +25,18 @@ public class MainPageTest extends TestBase {
     void testClickButton() {
         open("https://mango.rocks");
 
-        $("a #petsPageLink").$(byText("ПОДРОБНЕЕ")).click();
+        $("#petsPageLink").click();
+
+        $("body").shouldHave(text("Безусловная любовь"));
+    }
+
+    @Test
+    @DisplayName("click button about us")
+    void testClickAboutUs() {
+        open("https://mango.rocks");
+
+        $(byText("О НАС"), 0).click();
+
+        $("body").shouldHave(text("Как мы работаем"));
     }
 }
